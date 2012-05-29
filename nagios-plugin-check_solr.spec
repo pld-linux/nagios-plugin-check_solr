@@ -8,11 +8,12 @@ Group:		Networking
 Source0:	http://nagios-plugins-shamil.googlecode.com/svn/trunk/by_me/check_solr.sh
 # Source0-md5:	c53cf19008597b4d9a352ae28ad7127b
 Source1:	%{plugin}.cfg
+Patch0:		bashism.patch
 URL:		https://code.google.com/p/nagios-plugins-shamil/
 Requires:	curl
+Requires:	nagios-common
 Requires:	which
 Requires:	xmlstarlet
-Requires:	nagios-common
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,11 +27,13 @@ usage for info.
 
 %prep
 %setup -qcT
+cp -p %{SOURCE0} .
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{plugindir}}
-install -p %{SOURCE0} $RPM_BUILD_ROOT%{plugindir}/%{plugin}
+install -p %{plugin}.sh $RPM_BUILD_ROOT%{plugindir}/%{plugin}
 cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/%{plugin}.cfg
 
 %clean

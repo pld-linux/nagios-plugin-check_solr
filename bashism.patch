@@ -1,5 +1,5 @@
---- nagios-plugin-check_solr/check_solr.sh~	2011-08-10 16:54:07.000000000 +0300
-+++ nagios-plugin-check_solr/check_solr.sh	2012-05-29 14:00:40.333361738 +0300
+--- nagios-plugin-check_solr/check_solr.sh	2012-05-29 14:00:40.333361738 +0300
++++ nagios-plugin-check_solr-2010.10.11/check_solr.sh	2012-05-29 14:20:18.919910459 +0300
 @@ -1,4 +1,4 @@
 -#!/bin/bash
 +#!/bin/sh
@@ -15,6 +15,15 @@
  #
  # Ver 2010.10.12:
  #                [*] Replication check was improved a bit to avoid false alarms
+@@ -83,7 +83,7 @@
+     echo "$SCRIPT_NAME - Nagios plugin to check Apache Solr"
+     echo "version $SCRIPT_VERSION, by Alex Simenduev, http://www.planetit.ws"
+ 
+-    echo -e "\n$USAGE\n"
++    print "\n$USAGE\n"
+ 
+     echo "Parameters description:"
+     echo " -H|--host <host>          # Solr host (default is localhost)"
 @@ -140,7 +140,7 @@
  	local OUTPUT=$(exec_curl "${URL_PREFIX}${O_SOLR_HOST}:${O_SOLR_PORT}/solr/$1/replication?command=details&wt=xml" |
  		xmlstarlet sel -t -v "/response/lst[@name='details']/str[@name='isSlave']")

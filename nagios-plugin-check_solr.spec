@@ -1,15 +1,15 @@
 %define		plugin	check_solr
 Summary:	This is a nagios plugin that checks Apache Solr host
 Name:		nagios-plugin-%{plugin}
-Version:	2010.10.11
+Version:	2010.10.12
 Release:	1
 License:	Open Source (other)
 Group:		Networking
-Source0:	http://nagios-plugins-shamil.googlecode.com/svn/trunk/by_me/check_solr.sh
+Source0:	https://raw.githubusercontent.com/shamil/nagios-plugins-shamil/master/by_me/check_solr.sh
 # Source0-md5:	c53cf19008597b4d9a352ae28ad7127b
 Source1:	%{plugin}.cfg
 Patch0:		bashism.patch
-URL:		https://code.google.com/p/nagios-plugins-shamil/
+URL:		https://github.com/shamil/nagios-plugins-shamil
 Requires:	curl
 Requires:	nagios-common
 Requires:	which

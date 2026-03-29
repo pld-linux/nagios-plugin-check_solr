@@ -2,7 +2,7 @@
 Summary:	This is a nagios plugin that checks Apache Solr host
 Name:		nagios-plugin-%{plugin}
 Version:	2010.10.12
-Release:	1
+Release:	2
 License:	Open Source (other)
 Group:		Networking
 Source0:	https://raw.githubusercontent.com/shamil/nagios-plugins-shamil/master/by_me/check_solr.sh
